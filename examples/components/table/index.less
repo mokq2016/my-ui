@@ -1,0 +1,60 @@
+
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width:8px;
+  height: 8px;
+  background-color:#eee;
+  border-radius:20px;
+  }
+
+  /* 滚动槽 */
+  ::-webkit-scrollbar-track {
+  border-radius:20px;
+  }
+
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+  border-radius:10px;
+    height: 8px;
+  background:#999;
+  }
+.my-table{
+  overflow: auto;
+  width: 100%;
+  .my-table__header-wrapper{
+    overflow: hidden;
+  }
+&__header{
+  table-layout: fixed;
+  border-collapse: separate;
+  width: 100%;
+  .my-table__header_th{
+    padding: 8px 0;
+    text-align: left;
+    background-color: #f8f8f9;
+    border-bottom: 1px solid #e8eaec;
+    &-cell{
+      padding:0 10px;
+    }
+  }
+}
+&__body-wrapper{
+  
+  width: 100%;
+  overflow: auto;
+  .my-table__body{
+    table-layout: fixed;
+    border-collapse: separate;
+    width: 100%;
+  }
+  .my-table__td{
+    text-align: left;
+    padding: 12px 0;
+    border-bottom: 1px solid #e8eaec;
+    &-cell{
+      padding: 0 10px;
+    }
+  }
+}
+}
