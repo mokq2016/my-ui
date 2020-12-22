@@ -1,5 +1,9 @@
 export default{
   methods: {
+    alignCls (column) {
+      return {'my-table-hidden':this.fixed === 'left' && column.fixed!== 'left'}
+         
+  },
     setCellWidth(column) {
       let width = '';
       if (column.width) {

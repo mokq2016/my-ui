@@ -16,15 +16,16 @@ export default {
       columns: [{
         title: '序号',
         type: 'index',
+        fixed:'left'
       }, {
         title: 'ID',
         key: 'id',
-        width: '520',
+        width: '220',
       },
       {
         title: 'Name',
         key: 'name',
-        width: '320',
+        width: '220',
       },
       {
         title: 'Amount1',

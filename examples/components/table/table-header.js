@@ -6,6 +6,10 @@ export default{
   props: {
     columns: Array,
     columnsWidth: Object,
+    fixed: {
+      type: [Boolean, String],
+      default: false
+  },
   },
   render() {
     return (<table class="my-table__header"
@@ -18,7 +22,7 @@ export default{
       <thead>
         {this.headRows.map(row => <tr class="my-table__header_tr">
           {
-            row.map(col => <th class="my-table__header_th"><div class="my-table__header_th-cell">{col.title}</div></th>)
+            row.map(col => <th class="my-table__header_th" class={['my-table__header_th',this.alignCls(col)]}><div class="my-table__header_th-cell">{col.title}</div></th>)
           }
         </tr>)}
       </thead>

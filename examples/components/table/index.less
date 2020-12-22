@@ -20,10 +20,29 @@
   background:#999;
   }
 .my-table{
-  overflow: auto;
+  overflow: hidden;
   width: 100%;
-  .my-table__header-wrapper{
-    overflow: hidden;
+  position: relative;
+  &-hidden{
+    visibility: hidden;
+    background: transparent!important;
+    // display: none;
+  }
+  .my-table-fixed{
+    position: absolute;
+    top: 0;
+    left: 0;
+    .my-table__header-wrapper{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .my-table__body-wrapper{
+      position: absolute;
+      top: 38px;
+      left: 0;
+      // background: #fff;
+    }
   }
 &__header{
   table-layout: fixed;
@@ -39,9 +58,10 @@
     }
   }
 }
+&__header-wrapper{
+  overflow: hidden;
+}
 &__body-wrapper{
-  
-  width: 100%;
   overflow: auto;
   .my-table__body{
     table-layout: fixed;
@@ -52,6 +72,7 @@
     text-align: left;
     padding: 12px 0;
     border-bottom: 1px solid #e8eaec;
+    background: #fff;
     &-cell{
       padding: 0 10px;
     }

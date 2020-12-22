@@ -7,6 +7,10 @@ export default{
     data: Array,
     columns: Array,
     columnsWidth: Object,
+    fixed: {
+      type: [Boolean, String],
+      default: false
+  },
   },
   render() {
     function renderCell(row, col, index) {
@@ -27,7 +31,7 @@ export default{
       <tbody>
         {this.data.map((row, rowIndex) => <tr class="my-table__tr">
           {
-            this.columns.map(col => <td class="my-table__td" ><div class="my-table__td-cell">{renderCell(row, col, rowIndex)}</div></td>)
+            this.columns.map(col => <td class={['my-table__td',this.alignCls(col)]}><div class="my-table__td-cell">{renderCell(row, col, rowIndex)}</div></td>)
           }
         </tr>)}
       </tbody>

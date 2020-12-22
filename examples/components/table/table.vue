@@ -1,10 +1,18 @@
 <template>
   <div class="my-table">
-    <div class="my-table__header-wrapper">
+    <div class="my-table__header-wrapper" ref="header">
       <table-header :columns="columnsClone" :columnsWidth="columnsWidth"/>
     </div>
-    <div class="my-table__body-wrapper">
+    <div class="my-table__body-wrapper" @scroll="handleBodyScroll">
       <table-body :data="data" :columns="columnsClone" :columnsWidth="columnsWidth"/>
+    </div>
+    <div class="my-table-fixed">
+      <div class="my-table__header-wrapper">
+      <table-header :columns="columnsClone" :columnsWidth="columnsWidth" fixed="left"/>
+    </div>
+    <div class="my-table__body-wrapper" @scroll="handleBodyScroll">
+      <table-body :data="data" :columns="columnsClone" :columnsWidth="columnsWidth" fixed="left"/>
+    </div>
     </div>
   </div>
 </template>
@@ -47,6 +55,11 @@ export default {
       });
       this.columnsWidth = columnsWidth;
     },
+    handleBodyScroll(event){
+
+      this.$refs.header.scrollLeft = event.target.scrollLeft
+      console.log(event.target.scrollLeft)
+    }
   },
   watch: {
     columns: {
