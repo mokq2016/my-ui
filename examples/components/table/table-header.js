@@ -6,13 +6,17 @@ export default{
   props: {
     columns: Array,
     columnsWidth: Object,
+    prefixCls:{
+      type:String,
+      default:''
+    },
     fixed: {
       type: [Boolean, String],
       default: false
   },
   },
-  render() {
-    return (<table class="my-table__header"
+  render(h) {
+    return (<table class={this.prefixCls+'__header'}
       cellspacing="0"
       cellpadding="0"
       border="0">
@@ -20,9 +24,9 @@ export default{
         {this.columns.map(col => <col width={this.setCellWidth(col)}/>)}
       </colgroup>
       <thead>
-        {this.headRows.map(row => <tr class="my-table__header_tr">
+        {this.headRows.map(row => <tr class={this.prefixCls+'__header_tr'} >
           {
-            row.map(col => <th class="my-table__header_th" class={['my-table__header_th',this.alignCls(col)]}><div class="my-table__header_th-cell">{col.title}</div></th>)
+            row.map(col => <th class={[this.prefixCls+'__header_th',this.alignCls(col)]}><div class={this.prefixCls+'__header_th-cell'}>{col.title}</div></th>)
           }
         </tr>)}
       </thead>
